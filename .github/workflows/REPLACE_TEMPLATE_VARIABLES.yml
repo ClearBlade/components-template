@@ -58,3 +58,8 @@ jobs:
           git add .
           git commit -m "Replaced Template Variables"
           git push
+
+      - name: Create and push tag
+        run: |
+          git tag v1.0.0
+          git push origin v1.0.0
