@@ -1,10 +1,63 @@
-## How to create a new Component Repository
+# Component Template Repository
 
-- In GitHub, on the page for this repository, select `Use this template` -> `Create a new repository` and fill out your desired location and repository name. The repository's visibility will need to be set to public, and your repository name will need to be in a specific format.
-- The repository name you provide will be used to fill in the template variables upon creation, it will be used to determine your COMPONENT_PREFIX and COMPONENT_ID in the format of ${COMPONENT_PREFIX}-${COMPONENT_ID}. For example, if you name your repository ‘foo-bar’ the prefix would be set to ‘foo’ and the id would be set to ‘bar’.
-NOTE:
-Your COMPONENT_PREFIX may only include alphanumeric characters and underscores. It must begin with a letter and cannot have an '_' as the last character. [a-zA-Z0-9_]
-Your COMPONENT_ID may only include letters and underscores. It must begin with a letter. [a-zA-Z_]
-- After creating your new repository, remember to run `npm i` to install all dependencies
+This repository serves as a template for creating new components in the ClearBlade Intelligent Assets platform. It provides a standardized structure and configuration for developing React-based micro-frontends.
 
-[Visit our IA documentation for more information on creating components](https://clearblade.atlassian.net/wiki/x/FQB6ug)
+## Getting Started
+
+### Prerequisites
+- Node.js (Latest LTS version recommended)
+- npm (comes with Node.js)
+
+### Component Repository Creation
+
+1. Create a new repository from this template:
+   - In GitHub, on the page for this repository, select `Use this template` -> `Create a new repository`
+   - Fill out your desired owner and repository name
+   - The repository's visibility must be set to public
+
+2. Repository Naming Rules:
+   - Standard repository naming convention
+
+3. Once created, clone locally and install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Development
+
+### Available Scripts
+
+- `npm start` - Start MFE server
+- `npm run build` - Build the MFE for production
+- `npm run build:library` - Build the component library
+- `npm run build:service` - Build the service
+
+### Project Structure
+
+The project structure is similar to any ClearBlade system exported using `cb-cli`
+
+```
+├── mfe/                 # Micro-frontend source code
+├── cb-dev-kit/          # Development kit configuration
+├── webpack.config.js    # Webpack configuration
+├── tsconfig.json        # TypeScript configuration
+└── package.json         # Project dependencies and scripts
+```
+
+## Dependencies
+
+This template includes several key dependencies:
+- React 17
+- Material-UI 4
+- TypeScript
+- Single-SPA for micro-frontend architecture
+- ESLint and Prettier for code quality
+
+## Documentation
+
+For more detailed information about creating components, please visit our 
+[IA documentation](https://clearblade.atlassian.net/wiki/x/FQB6ug).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

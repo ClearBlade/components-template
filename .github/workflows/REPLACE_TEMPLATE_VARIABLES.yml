@@ -21,14 +21,11 @@ jobs:
         id: generate
         run: |
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
-          IFS='-' read -ra PARTS <<< "$REPO_NAME"
-          if [ ${#PARTS[@]} -eq 2 ] && [[ ${PARTS[0]} =~ ^[a-zA-Z][a-zA-Z0-9_]*[a-zA-Z0-9]$ ]] && [[ ${PARTS[1]} =~ ^[a-zA-Z][a-zA-Z_]*$ ]]; then
-            PREFIX="${PARTS[0]}"
-            ID="${PARTS[1]}"
-          else
-            PREFIX="{{component_prefix}}"
-            ID="{{component_id}}"
-          fi
+          # Strip special characters and spaces, convert to camelCase
+          ID=$(echo "$REPO_NAME" | sed -E 's/[^a-zA-Z0-9]//g' | sed -E 's/^[0-9]+//g' | sed -E 's/^./\U&/')
+          # Create unique prefix using millisecond timestamp
+          TIMESTAMP=$(date +%s%N | cut -b1-13)
+          PREFIX="c${TIMESTAMP}"
           echo "PREFIX=$PREFIX" >> $GITHUB_OUTPUT
           echo "ID=$ID" >> $GITHUB_OUTPUT
 
