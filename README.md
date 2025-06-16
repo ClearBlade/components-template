@@ -4,10 +4,6 @@ This repository serves as a template for creating new components in the ClearBla
 
 ## Getting Started
 
-### Prerequisites
-- Node.js (Latest LTS version recommended)
-- npm (comes with Node.js)
-
 ### Component Repository Creation
 
 1. Create a new repository from this template:
@@ -37,6 +33,7 @@ This repository serves as a template for creating new components in the ClearBla
 The project structure is similar to any ClearBlade system exported using `cb-cli`
 
 ```
+├── src/                 # Services/Libraries source code
 ├── mfe/                 # Micro-frontend source code
 ├── cb-dev-kit/          # Development kit configuration
 ├── webpack.config.js    # Webpack configuration
