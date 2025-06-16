@@ -22,7 +22,7 @@ jobs:
         run: |
           REPO_NAME="${GITHUB_REPOSITORY##*/}"
           # Strip special characters and spaces, convert to camelCase
-          ID=$(echo "$REPO_NAME" | sed -E 's/[^a-zA-Z0-9]//g' | sed -E 's/^[0-9]+//g' | sed -E 's/^./\U&/')
+          ID=$(echo "$REPO_NAME" | sed -E 's/[^a-zA-Z0-9]/-/g' | tr '[:upper:]' '[:lower:]' | sed -E 's/^[0-9]+//g' | sed -E 's/-([a-z])/\U\1/g' | sed -E 's/^./\U&/')
           # Create unique prefix using millisecond timestamp
           TIMESTAMP=$(date +%s%N | cut -b1-13)
           PREFIX="c${TIMESTAMP}"
