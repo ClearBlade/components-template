@@ -16,7 +16,7 @@ This repository serves as a template for creating new components in the ClearBla
 
 3. Once created, clone locally and install dependencies:
    ```bash
-   npm install
+   npm install --legacy-peer-deps
    ```
 
 ## Development
